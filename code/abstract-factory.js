@@ -5,10 +5,6 @@ function BMW() {
 function Mercedes() {
     console.log('mercedes car');
 }
-const carDict = {
-    'bmw': BMW,
-    'mercedes': Mercedes,
-};
 
 function Toy1() {
     console.log('toy 1');
@@ -16,10 +12,6 @@ function Toy1() {
 function Toy2() {
     console.log('toy 2');
 }
-const toyDict = {
-    'toy1': Toy1,
-    'toy2': Toy2
-};
 
 function abstractFactory(productDict) {
     return {
@@ -30,6 +22,16 @@ function abstractFactory(productDict) {
     }
 }
 
-const factory = abstractFactory({ ...carDict, ...toyDict });
-factory.produce('bmw');
-factory.produce('toy1');
+(function test() {
+    const carDict = {
+        'bmw': BMW,
+        'mercedes': Mercedes,
+    };
+    const toyDict = {
+        'toy1': Toy1,
+        'toy2': Toy2
+    };
+    const factory = abstractFactory({ ...carDict, ...toyDict });
+    factory.produce('bmw');
+    factory.produce('toy1');
+})();

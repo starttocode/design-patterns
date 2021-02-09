@@ -6,20 +6,20 @@ Proto.prototype.getGender = function() {
     console.log("gender", this.gender);
 }
 
-function Sub(name, age) {
+function SubClass(name, age) {
     this.name = name;
     this.age = age;
 }
-Sub.prototype = new Proto('male');
-Sub.prototype.getDesc = function() {
+SubClass.prototype = new Proto('male');
+SubClass.prototype.getDesc = function() {
     console.log(this.name, this.age, this.gender);
 };
 
-const tom = new Sub('tom', 21);
-const mike = new Sub('mike', 22);
-
-tom.getDesc();
-mike.getDesc();
-mike.getGender();
-
-console.log(Sub.prototype === tom.__proto__);
+(function test(){
+    const tom = new SubClass('tom', 21);
+    const mike = new SubClass('mike', 22);
+    tom.getDesc();
+    mike.getDesc();
+    mike.getGender();
+    console.log(SubClass.prototype === tom.__proto__);
+})();
