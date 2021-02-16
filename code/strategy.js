@@ -57,4 +57,5 @@ const registerValidator = {
 ** 示例代码，需要html的dom节点才能运行
 registerValidator.add(usernameValidator, document.getElementById('user_name'));
 registerValidator.add(passwordValidator, document.getElementById('pass_word'));
+registerValidator.validate();
 */
